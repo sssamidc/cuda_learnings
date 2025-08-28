@@ -1,10 +1,12 @@
 CC = nvcc
-CFLAGS = -gencode arch=compute_87,code=sm_87
+CFLAGS = -O2 -gencode arch=compute_87,code=sm_87
 
-all:	hello
+APP = hello
 
-hello:	hello.cu
-	$(CC) $(CFLAGS) hello.cu -o hello
+all:	${APP}
+
+%:	%.cu
+	$(CC) $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f	hello
+	rm -f	${APP}
