@@ -8,7 +8,8 @@ NCFLAGS = -O2 -gencode arch=compute_87,code=sm_87
 
 ## Application binding
 C_APP = sumArrayOnHost
-NC_APP = checkDimension
+NC_APP = checkDimension \
+	 defineGridBlock
 
 ## Generic rule
 all:	${C_APP} ${NC_APP}
